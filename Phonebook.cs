@@ -12,12 +12,12 @@ public class Phonebook
     // Add a student
     public bool AddStudent(Student student)
     {
-        if (FindByStudentNumber(student.StudentNumber) != null)
-        {
-            return false;
-        }
+     ArgumentNullException.ThrowIfNull(student);
 
-        students.Add(student);
+        if (FindByStudentNumber(student.StudentNumber) != null)
+        return false;
+
+     students.Add(student);
         return true;
     }
 
