@@ -15,14 +15,28 @@ public class Student
         string firstName, string occupation, char gender,
         string countryCode, string areaCode, string phoneNumber)
     {
-        StudentNumber = studentNumber;
-        Surname = surname;
-        FirstName = firstName;
-        Occupation = occupation;
-        Gender = gender;
-        CountryCode = countryCode;
-        AreaCode = areaCode;
-        PhoneNumber = phoneNumber;
+        {
+    if (string.IsNullOrWhiteSpace(studentNumber))
+        throw new ArgumentException("Student number cannot be empty.");
+
+    if (string.IsNullOrWhiteSpace(surname))
+        throw new ArgumentException("Surname cannot be empty.");
+
+    if (string.IsNullOrWhiteSpace(firstName))
+        throw new ArgumentException("First name cannot be empty.");
+
+    if (gender != 'M' && gender != 'F')
+        throw new ArgumentException("Gender must be M or F.");
+
+    StudentNumber = studentNumber;
+    Surname = surname;
+    FirstName = firstName;
+    Occupation = occupation;
+    Gender = gender;
+    CountryCode = countryCode;
+    AreaCode = areaCode;
+    PhoneNumber = phoneNumber;
+}
     }
 
     public string GetFullName()
